@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileTools.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Label
+                Text="Investment Calculator"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Provide the investment parameters and desired % returns and get the total value of the investment and required % company ownership to make it happen."
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                FontSize="18"
+                HorizontalOptions="Center" />
+
+            <Label Text="Initial Investment ($)" />
+            <Entry x:Name="InitialInvestment" Keyboard="Numeric" TextChanged="OnInitialInvestmentTextChanged" />
+
+            <Label Text="Desired Rate of Return (%)" />
+            <Entry x:Name="RateOfReturn" Keyboard="Numeric" TextChanged="OnRateOfReturnTextChanged" />
+
+            <Label Text="Expected Rate of Inflation (%)" />
+            <Entry x:Name="RateOfInflation" Keyboard="Numeric" TextChanged="OnRateOfInflationTextChanged" />
+
+            <Label Text="How long will you hold this investment? (years)" />
+            <Entry x:Name="InvestmentPeriodInYears" Keyboard="Numeric" TextChanged="OnInvestmentPeriodTextChanged" />
+
+            <Label Text="What are the projected earnings of the company the final year of holding the investment? ($)" />
+            <Entry x:Name="ExpectedAnnualCompanyEarnings" Keyboard="Numeric" TextChanged="OnExpectedCompanyEarningsTextChanged" />
+
+            <Label>
+                Include 50% Risk Factor for projected company earnings?
+            </Label>
+
+            <CheckBox x:Name="IncludeRiskFactor" IsChecked="false" />
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Calculate Returns and Ownership"
+                SemanticProperties.Hint="Calculates total return on investment and required company ownership to achieve it."
+                Clicked="CalculateReturnsAndOwnership"
+                HorizontalOptions="Center" />
+
+            <Label Text="Return on Investment ($)" />
+            <Entry x:Name="ReturnOnInvestment" Keyboard="Numeric" />
+
+            <Label Text="Required Company Ownership (%)" />
+            <Entry x:Name="RequiredOwnership" Keyboard="Numeric" />
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
+
