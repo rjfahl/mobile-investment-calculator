@@ -37,12 +37,11 @@
             <Label Text="What are the projected earnings of the company the final year of holding the investment? ($)" />
             <Entry x:Name="ExpectedAnnualCompanyEarnings" Keyboard="Numeric" TextChanged="OnExpectedCompanyEarningsTextChanged" />
 
-            <Label>
-                Include 50% Risk Factor for projected company earnings?
-            </Label>
-
-            <CheckBox x:Name="IncludeRiskFactor" IsChecked="false" />
-
+            <FlexLayout Direction="Row">
+                <Label Text="Include 50% Risk Factor for projected company earnings?" />
+                <CheckBox x:Name="IncludeRiskFactor" IsChecked="false" />
+            </FlexLayout>
+            
             <Button
                 x:Name="CounterBtn"
                 Text="Calculate Returns and Ownership"
@@ -50,11 +49,15 @@
                 Clicked="CalculateReturnsAndOwnership"
                 HorizontalOptions="Center" />
 
-            <Label Text="Return on Investment ($)" />
-            <Entry x:Name="ReturnOnInvestment" Keyboard="Numeric" />
+            <FlexLayout Direction="Row">
+                <Label Text="Return on Investment ($): " />
+                <Label x:Name="ReturnOnInvestment" />
+            </FlexLayout>
 
-            <Label Text="Required Company Ownership (%)" />
-            <Entry x:Name="RequiredOwnership" Keyboard="Numeric" />
+            <FlexLayout Direction="Row">
+                <Label Text="Required Company Ownership (%): " />
+                <Label x:Name="RequiredOwnership" />
+            </FlexLayout>
 
 
         </VerticalStackLayout>

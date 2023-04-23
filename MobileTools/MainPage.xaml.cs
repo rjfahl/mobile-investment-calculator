@@ -2,21 +2,21 @@
 
 public partial class MainPage : ContentPage
 {
-    int initialInvestment = 1000;
-    double rateOfReturn = 35;
-    double rateOfInflation = 7.5;
-    int investmentPeriodInYears = 5;
-    int expectedAnnualCompanyEarningsAtEndOfInvestmentPeriod = 20000;
-    const double RISK_FACTOR = 0.5;
+    int initialInvestment = 0;
+    double rateOfReturn = 0;
+    double rateOfInflation = 0;
+    int investmentPeriodInYears = 0;
+    int expectedAnnualCompanyEarningsAtEndOfInvestmentPeriod = 0;
+    const double RISK_FACTOR = 0;
 
 	public MainPage()
 	{
 		InitializeComponent();
-        InitialInvestment.Text = initialInvestment.ToString();
-        RateOfReturn.Text = rateOfReturn.ToString();
-        RateOfInflation.Text = rateOfInflation.ToString();
-        InvestmentPeriodInYears.Text = investmentPeriodInYears.ToString();
-        ExpectedAnnualCompanyEarnings.Text = expectedAnnualCompanyEarningsAtEndOfInvestmentPeriod.ToString();
+        //InitialInvestment.Text = initialInvestment.ToString();
+        //RateOfReturn.Text = rateOfReturn.ToString();
+        //RateOfInflation.Text = rateOfInflation.ToString();
+        //InvestmentPeriodInYears.Text = investmentPeriodInYears.ToString();
+        //ExpectedAnnualCompanyEarnings.Text = expectedAnnualCompanyEarningsAtEndOfInvestmentPeriod.ToString();
     }
 
     void OnInitialInvestmentTextChanged(object sender, TextChangedEventArgs e)
