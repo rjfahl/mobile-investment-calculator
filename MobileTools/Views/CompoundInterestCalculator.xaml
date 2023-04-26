@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileTools.Views.CompoundInterestCalculator"
+             xmlns:viewmodel="clr-namespace:MobileTools.ViewModels"
+             x:DataType="viewmodel:CompoundInterestCalculatorViewModel"
+             Title="Compound Interest Calculator">
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Label Text="Initial Investment ($)" />
+            <Entry Placeholder="Initial Investment" Text="{Binding InitialInvestment}"/>
+
+            <Label Text="Monthly Contribution" />
+            <Entry Placeholder="Monthly Contribution" Text="{Binding MonthlyContribution}"/>
+
+            <Label Text="Length of time in years" />
+            <Entry Placeholder="Length of Time In Years" Text="{Binding LengthOfTimeInYears}"/>
+
+            <Label Text="Estimated Interest Rate" />
+            <Entry Placeholder="Estimated Interest Rate" Text="{Binding InterestRate}"/>
+
+            <Label Text="Interest Rate Variance" />
+            <Entry Placeholder="Interest Rate Variance" Text="{Binding InterestRateVariance}"/>
+
+            <Button FontSize="18" Text="Calculate Investment Total" Command="{Binding CalculateCompoundInterestCommand}" />
+
+            <Label FontSize="18"
+                IsVisible="{Binding LowVarianceInvestmentTotal}"
+                Text="{Binding LowVarianceInvestmentTotal, StringFormat='Estimated Lower Interest Investment Value: {0:C}'}"/>
+
+            <Label FontSize="18"
+                IsVisible="{Binding HighVarianceInvestmentTotal}"
+                Text="{Binding HighVarianceInvestmentTotal, StringFormat='Estimated Higher Interest Investment Value: {0:C}'}"/>
+
+            <Label FontSize="18"
+                IsVisible="{Binding InvestmentTotal}"
+                Text="{Binding InvestmentTotal, StringFormat='Estimated Total Investment Value: {0:C}'}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
+

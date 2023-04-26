@@ -1,12 +1,13 @@
-﻿namespace MobileTools;
+﻿using MobileTools.Views;
+
+namespace MobileTools;
 
 public partial class App : Application
 {
-	public App()
+	public App(MainPage main)
 	{
 		InitializeComponent();
-
-		MainPage = new AppShell();
-	}
+		MainPage = new NavigationPage(main);
+    }
 }
 

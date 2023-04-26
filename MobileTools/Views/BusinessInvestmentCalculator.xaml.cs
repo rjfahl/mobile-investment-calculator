@@ -1,6 +1,6 @@
-﻿namespace MobileTools;
+﻿namespace MobileTools.Views;
 
-public partial class MainPage : ContentPage
+public partial class BusinessInvestmentCalculator : ContentPage
 {
     int initialInvestment = 0;
     double rateOfReturn = 0;
@@ -9,19 +9,14 @@ public partial class MainPage : ContentPage
     int expectedAnnualCompanyEarningsAtEndOfInvestmentPeriod = 0;
     const double RISK_FACTOR = 0;
 
-	public MainPage()
+    public BusinessInvestmentCalculator()
 	{
 		InitializeComponent();
-        //InitialInvestment.Text = initialInvestment.ToString();
-        //RateOfReturn.Text = rateOfReturn.ToString();
-        //RateOfInflation.Text = rateOfInflation.ToString();
-        //InvestmentPeriodInYears.Text = investmentPeriodInYears.ToString();
-        //ExpectedAnnualCompanyEarnings.Text = expectedAnnualCompanyEarningsAtEndOfInvestmentPeriod.ToString();
-    }
+	}
 
     void OnInitialInvestmentTextChanged(object sender, TextChangedEventArgs e)
     {
-        initialInvestment = string.IsNullOrWhiteSpace(e.NewTextValue) ? 0: Int32.Parse(e.NewTextValue);
+        initialInvestment = string.IsNullOrWhiteSpace(e.NewTextValue) ? 0 : Int32.Parse(e.NewTextValue);
     }
 
     void OnRateOfReturnTextChanged(object sender, TextChangedEventArgs e)
@@ -45,7 +40,7 @@ public partial class MainPage : ContentPage
     }
 
     private void CalculateReturnsAndOwnership(object sender, EventArgs e)
-	{
+    {
         var returnRate = rateOfReturn * .01 + 1;
         var inflationRate = rateOfInflation * .01 + 1;
 
@@ -58,11 +53,9 @@ public partial class MainPage : ContentPage
         var companyAcquisitionPrice = ((expectedAnnualCompanyEarningsAtEndOfInvestmentPeriod) * 10);
         var riskAdjustedAcquisitionPrice = companyAcquisitionPrice * RISK_FACTOR;
 
-        var ownership = (returns / (IncludeRiskFactor.IsChecked ? riskAdjustedAcquisitionPrice: companyAcquisitionPrice)) * 100;
+        var ownership = (returns / (IncludeRiskFactor.IsChecked ? riskAdjustedAcquisitionPrice : companyAcquisitionPrice)) * 100;
 
         ReturnOnInvestment.Text = Math.Round(returns).ToString();
         RequiredOwnership.Text = Math.Round(ownership).ToString();
     }
 }
-
-

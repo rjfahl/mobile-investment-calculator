@@ -1,19 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileTools.MainPage">
-
-    <ScrollView>
+             x:Class="MobileTools.Views.BusinessInvestmentCalculator"
+             Title="Business Investment Calculator">
+   <ScrollView>
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
-
-            <Label
-                Text="Investment Calculator"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
 
             <Label
                 Text="Provide the investment parameters and desired % returns and get the total value of the investment and required % company ownership to make it happen."
@@ -38,7 +32,7 @@
             <Entry x:Name="ExpectedAnnualCompanyEarnings" Keyboard="Numeric" TextChanged="OnExpectedCompanyEarningsTextChanged" />
 
             <FlexLayout Direction="Row">
-                <Label Text="Include 50% Risk Factor for projected company earnings?" />
+                <Label Text="Add earnings risk factor?" />
                 <CheckBox x:Name="IncludeRiskFactor" IsChecked="false" />
             </FlexLayout>
             
@@ -62,6 +56,4 @@
 
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>
-
