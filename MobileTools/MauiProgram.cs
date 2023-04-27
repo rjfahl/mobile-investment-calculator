@@ -19,8 +19,13 @@ public static class MauiProgram
 
 		builder.Services.AddSingleton<MainPage>();
 		builder.Services.AddSingleton<BusinessInvestmentCalculator>();
-		builder.Services.AddSingleton<CompoundInterestCalculator>();
+		builder.Services.AddSingleton<BusinessInvestmentCalculatorViewModel>();
+        builder.Services.AddSingleton<CompoundInterestCalculator>();
         builder.Services.AddSingleton<CompoundInterestCalculatorViewModel>();
+        builder.Services.AddSingleton<MinimumDistributionCalculator>();
+        builder.Services.AddSingleton<MinimumDistributionCalculatorViewModel>();
+        builder.Services.AddSingleton<MortgageCalculator>();
+        builder.Services.AddSingleton<MortgageCalculatorViewModel>();
 
 #if DEBUG
         builder.Logging.AddDebug();
