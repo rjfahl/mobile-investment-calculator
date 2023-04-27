@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobileTools.Views.BusinessInvestmentCalculator"
+             xmlns:viewmodel="clr-namespace:MobileTools.ViewModels"
+             x:DataType="viewmodel:BusinessInvestmentCalculatorViewModel"
              Title="Business Investment Calculator">
    <ScrollView>
         <VerticalStackLayout
@@ -16,44 +18,33 @@
                 FontSize="18"
                 HorizontalOptions="Center" />
 
-            <Label Text="Initial Investment ($)" />
-            <Entry x:Name="InitialInvestment" Keyboard="Numeric" TextChanged="OnInitialInvestmentTextChanged" />
+            <Label Text="Initial Investment" />
+            <Entry Keyboard="Numeric" Text="{Binding InitialInvestment}" />
 
-            <Label Text="Desired Rate of Return (%)" />
-            <Entry x:Name="RateOfReturn" Keyboard="Numeric" TextChanged="OnRateOfReturnTextChanged" />
+            <Label Text="Desired Rate of Return" />
+            <Entry Keyboard="Numeric" Text="{Binding RateOfReturn}" />
 
-            <Label Text="Expected Rate of Inflation (%)" />
-            <Entry x:Name="RateOfInflation" Keyboard="Numeric" TextChanged="OnRateOfInflationTextChanged" />
+            <Label Text="Expected Rate of Inflation" />
+            <Entry Keyboard="Numeric" Text="{Binding RateOfInflation}" />
 
             <Label Text="How long will you hold this investment? (years)" />
-            <Entry x:Name="InvestmentPeriodInYears" Keyboard="Numeric" TextChanged="OnInvestmentPeriodTextChanged" />
+            <Entry Keyboard="Numeric" Text="{Binding InvestmentPeriodInYears}" />
 
-            <Label Text="What are the projected earnings of the company the final year of holding the investment? ($)" />
-            <Entry x:Name="ExpectedAnnualCompanyEarnings" Keyboard="Numeric" TextChanged="OnExpectedCompanyEarningsTextChanged" />
+            <Label Text="What are the projected earnings of the company the final year of holding the investment?" />
+            <Entry Keyboard="Numeric" Text="{Binding ExpectedAnnualCompanyEarningsAtEndOfInvestmentPeriod}" />
 
-            <FlexLayout Direction="Row">
+            <FlexLayout Direction="Row" AlignContent="Center">
                 <Label Text="Add earnings risk factor?" />
-                <CheckBox x:Name="IncludeRiskFactor" IsChecked="false" />
+                <CheckBox IsChecked="{Binding IncludeRiskFactor}" />
             </FlexLayout>
             
-            <Button
-                x:Name="CounterBtn"
-                Text="Calculate Returns and Ownership"
+            <Button Text="Calculate Returns and Ownership"
                 SemanticProperties.Hint="Calculates total return on investment and required company ownership to achieve it."
-                Clicked="CalculateReturnsAndOwnership"
+                Command="{Binding CalculateReturnsAndOwnershipCommand}"
                 HorizontalOptions="Center" />
 
-            <FlexLayout Direction="Row">
-                <Label Text="Return on Investment ($): " />
-                <Label x:Name="ReturnOnInvestment" />
-            </FlexLayout>
-
-            <FlexLayout Direction="Row">
-                <Label Text="Required Company Ownership (%): " />
-                <Label x:Name="RequiredOwnership" />
-            </FlexLayout>
-
-
+            <Label Text="{Binding ReturnOnInvestment, StringFormat='Return on Investment {0:C}'}" />
+            <Label Text="{Binding RequiredOwnership, StringFormat='Required Company Ownership {0}%'}" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
