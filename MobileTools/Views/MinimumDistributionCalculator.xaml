@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileTools.Views.MinimumDistributionCalculator"
+             xmlns:viewmodel="clr-namespace:MobileTools.ViewModels"
+             x:DataType="viewmodel:MinimumDistributionCalculatorViewModel"
+             Title="Minimum Distribution Calculator">
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Label Text="Year-End Account Balance" />
+            <Entry Placeholder="Balance" Text="{Binding AccountBalance}"/>
+
+            <Label Text="Age at Year-End" />
+            <Entry Placeholder="Age" Text="{Binding Age}"/>
+
+            <Button FontSize="18" Text="Calculate Minimum Distribution" Command="{Binding CalculateMinimumDistributionCommand}" />
+
+            <Label FontSize="18"
+                IsVisible="{Binding MinimumDistribution}"
+                Text="{Binding MinimumDistribution, StringFormat='Required Minimum Distribution: {0:C}'}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
+
